@@ -16,7 +16,7 @@ header{
     min-width:335px;
 }
 
-.content{
+.conteudo {
     min-width: 335px;
     padding-right: 116px;
     padding-left:122px;
@@ -41,6 +41,7 @@ header{
     position:absolute;   
     transition: all 0.5s;
     transform-style: preserve-3d;
+    
          
 }
 
@@ -75,44 +76,7 @@ img{
     Height:100px;
 }
 
+.cartabloqueada{
+  pointer-events: none;
+}
 
-
-
-/* .cartas {
-    display: flex;
-  }
-  
-  .carta {
-    width: 117px;
-    height: 160px;
-    position: relative;
-    margin: 17px;  
-    display: flex;
-  }
-  
-  .face {
-    background-color: lightgreen;
-    border: 1px green solid;
-    border-radius: 9px;
-  
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    transition: all 0.5s;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-  }
-  
-  .carta img {
-    width: 100px;
-    height: auto;
-  }
-  
-  virado {
-    transform: rotateY(180deg);
-  } */
