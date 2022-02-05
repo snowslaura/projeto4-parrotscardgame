@@ -23,14 +23,10 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;   
-    
+    align-items: center;  
 }
 
-
-
-
-.card{
+.frente{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,10 +38,81 @@ header{
     margin-bottom: 34px;
     margin-right: 17px;
     margin-left: 17px;
-       
+    position:absolute;   
+    transition: all 0.5s;
+    transform-style: preserve-3d;
+         
 }
+
+
+
+.verso{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A7E9AF;
+    width:117px;
+    height:146px;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    margin-bottom: 34px;
+    margin-right: 17px;
+    margin-left: 17px;
+    position:relative; 
+    transition: all 0.5s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;  
+      
+}
+
+.virada {
+    transform: rotateY(180deg);
+}
+
 
 img{
     Width:100px;
     Height:100px;
 }
+
+
+
+
+/* .cartas {
+    display: flex;
+  }
+  
+  .carta {
+    width: 117px;
+    height: 160px;
+    position: relative;
+    margin: 17px;  
+    display: flex;
+  }
+  
+  .face {
+    background-color: lightgreen;
+    border: 1px green solid;
+    border-radius: 9px;
+  
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    transition: all 0.5s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  
+  .carta img {
+    width: 100px;
+    height: auto;
+  }
+  
+  virado {
+    transform: rotateY(180deg);
+  } */
