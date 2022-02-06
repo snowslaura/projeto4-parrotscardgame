@@ -64,31 +64,36 @@ mostrarCartas();
 // Logica para virar as cartas
 
 let cartaVirada = false;
+let qtdJogadas = 0;
 
-function virarCarta(carta){
+    function virarCarta(carta){
 
-    let cartaFrente = carta.querySelector(".frente");
-    cartaFrente.classList.add("virada");
+        let cartaFrente = carta.querySelector(".frente");
+        cartaFrente.classList.add("virada");
 
-    let cartaVerso = carta.querySelector(".verso");
-    cartaVerso.classList.add("virada");
+        let cartaVerso = carta.querySelector(".verso");
+        cartaVerso.classList.add("virada");
 
-    if (!cartaVirada){
-        
-        cartaVirada = true;
-        primeiraCarta = carta;
+        if (!cartaVirada){
+            
+            cartaVirada = true;
+            primeiraCarta = carta;
+        }
+        else {
+            cartaVirada = false;
+            segundaCarta = carta;
+    
+            compararCartas(primeiraCarta,segundaCarta);
+        }
+
+        qtdJogadas++
+        terminarJogo()   
     }
-    else {
-        cartaVirada = false;
-        segundaCarta = carta;
-   
-        comparandoCartas(primeiraCarta,segundaCarta);
-    }
-}
 
+    
 // Lógica para comparar as cartas 
 
-function comparandoCartas(carta1,carta2){
+function compararCartas(carta1,carta2){
     if (carta1.innerHTML!=carta2.innerHTML){
 
         setTimeout(function(){ 
@@ -106,3 +111,30 @@ function comparandoCartas(carta1,carta2){
         }, 1000)
     }
 }
+
+
+
+function terminarJogo(){
+    const conteudo = document.querySelectorAll(".virada")
+
+        if(conteudo!==null){
+                
+            if (conteudo.length/2 == numeroDeCartasDoJogo ){
+                        
+
+                setTimeout(function(){
+                    let resposta = prompt(`Parabéns, você ganhou o jogo em ${qtdJogadas} jogadas. Gostaria de reiniciar? Se sim, escreva "S". Se não, digite "N"`)
+                
+
+                if(resposta == "S"){
+                    location.reload();
+                }
+                else if ((resposta == "N")) {
+                    alert("OK, obrigada!")
+                }
+                }, 1000)
+                
+            }
+        }
+}
+
