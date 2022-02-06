@@ -90,7 +90,8 @@ let qtdJogadas = 0;
         terminarJogo()   
     }
 
-    
+
+  
 // Lógica para comparar as cartas 
 
 function compararCartas(carta1,carta2){
@@ -118,12 +119,12 @@ function terminarJogo(){
     const conteudo = document.querySelectorAll(".virada")
 
         if(conteudo!==null){
-                
+                            
             if (conteudo.length/2 == numeroDeCartasDoJogo ){
                         
 
                 setTimeout(function(){
-                    let resposta = prompt(`Parabéns, você ganhou o jogo em ${qtdJogadas} jogadas. Gostaria de reiniciar? Se sim, escreva "S". Se não, digite "N"`)
+                    let resposta = prompt(`Parabéns, você ganhou o jogo em ${qtdJogadas} jogadas e ${contador} segundos. Gostaria de reiniciar? Se sim, escreva "S". Se não, digite "N"`)
                 
 
                 if(resposta == "S"){
@@ -138,3 +139,16 @@ function terminarJogo(){
         }
 }
 
+let contador=0;
+let tempoDeJogo;
+function tempoDeJogoPassado(){
+    tempoDeJogo = setInterval(tempoPassado,1000);
+}
+
+function tempoPassado(){
+    contador++;
+    contador = document.querySelector(".relogio").innerHTML
+    if (conteudo.length/2 == numeroDeCartasDoJogo){
+        clearInterval(idInterval);
+    }
+}
