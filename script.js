@@ -8,6 +8,7 @@ let cartaVirada = false;
 let qtdJogadas = 0;
 let carta;
 let tempoDeJogo = 0;
+let qtdCartasViradas = 0;
 const conteudo = document.querySelectorAll(".virada")
 
 // Iniciando do jogo 
@@ -82,15 +83,18 @@ mostrarCartas();
             
             cartaVirada = true;
             primeiraCarta = carta;
+            
         }
         else {
             cartaVirada = false;
             segundaCarta = carta;
+            
     
             compararCartas(primeiraCarta,segundaCarta);
         }
         
         qtdJogadas++
+        qtdCartasViradas++
         jogadasSeguidas()
         terminarJogo() 
         tempoPassado() 
@@ -123,11 +127,12 @@ function compararCartas(carta1,carta2){
 
 function jogadasSeguidas(){
 
-    if (qtdJogadas % 2 == 0){
+    if (qtdCartasViradas === 2){
        setTimeout(function(){
 
-        virarCarta(carta)
-       }, 2000)
+        compararCartas()
+       }, 2000);
+       return;
     }
     
 }
