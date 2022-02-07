@@ -52,12 +52,12 @@ function mostrarCartas(){
 
      for(let i=0; i< cartas.length ; i++){     
         conteudoDeCartas.innerHTML += `
-            <div class="carta" onclick="virarCarta(this)" >
-                <span class="frente"  >
+            <div class="carta" onclick="virarCarta(this)" data-identifier="card" >
+                <span class="frente" data-identifier="front-face" >
                     <img src="./img/parrot.${cartas[i]}.gif"></img>
                 </span>
                 
-                <span class="verso"  >
+                <span class="verso" data-identifier="back-face"  >
                     <img src="./img/front.png "></img>
                 </span>            
             </div>    
@@ -91,7 +91,7 @@ mostrarCartas();
         }
         
         qtdJogadas++
-        // jogadasSeguidas()
+        jogadasSeguidas()
         terminarJogo() 
         tempoPassado() 
     }
@@ -127,7 +127,7 @@ function jogadasSeguidas(){
        setTimeout(function(){
 
         virarCarta(carta)
-       }, 20000)
+       }, 2000)
     }
     
 }
