@@ -1,16 +1,24 @@
-// Iniciando do jogo 
+
 
 let numeroDeCartasDoJogo = prompt('Qual o número de cartas?');
+let numeroDeCartas = parseInt((numeroDeCartasDoJogo)/2);
+let arrayDeIndices = [0,1,2,3,4,5,6];
+let cartas = [];
+let cartaVirada = false;
+let qtdJogadas = 0;
+let carta;
+let tempoDeJogo = 0;
+const conteudo = document.querySelectorAll(".virada")
+
+// Iniciando do jogo 
 
 while (numeroDeCartasDoJogo % 2 !== 0 || numeroDeCartasDoJogo < 4 || numeroDeCartasDoJogo > 14){
     numeroDeCartasDoJogo= prompt('Qual o número de cartas?');
 }
 
-let numeroDeCartas = parseInt((numeroDeCartasDoJogo)/2);
+
 
 // Lógica para embaralhar as cartas 
-
-let arrayDeIndices = [0,1,2,3,4,5,6];
 
 function embaralhaCartas(array){    
     array = array.sort(comparador); 
@@ -21,8 +29,6 @@ embaralhaCartas(arrayDeIndices);
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-
-let cartas = [];
 
 // Lógica para selecionar as cartas a serem jogadas
 
@@ -63,10 +69,6 @@ mostrarCartas();
 
 // Logica para virar as cartas
 
-let cartaVirada = false;
-let qtdJogadas = 0;
-let carta;
-
 
     function virarCarta(carta){
 
@@ -91,8 +93,7 @@ let carta;
         qtdJogadas++
         // jogadasSeguidas()
         terminarJogo() 
-        // tempoDeJogoPassado()
-        // tempoPassado() 
+        tempoPassado() 
     }
 
 
@@ -131,26 +132,34 @@ function jogadasSeguidas(){
     
 }
 
-let tempoDeJogo = 0;
+
 
 function tempoDeJogoPassado(){
-    let relogio = document.querySelector(".relogio")
-    relogio.innerHTML = parseInt(relogio.innerHTML) + 1;
+    if (qtdJogadas > 0){
+        let relogio = document.querySelector(".relogio")
+        relogio.innerHTML = parseInt(relogio.innerHTML) + 1;
+    }   
 }
 
 const intervalo = setInterval(tempoDeJogoPassado,1000);
 
-function tempoPassado(){   
+function tempoPassado(){
+    const conteudo = document.querySelectorAll(".virada") 
+    
     if (conteudo.length/2 == numeroDeCartasDoJogo){
         clearInterval(intervalo);
+       
     }
+
     tempoDeJogo = document.querySelector(".relogio").innerHTML;
+    
 }
+
 
 
 function terminarJogo(){
     const conteudo = document.querySelectorAll(".virada")
-
+    
         if(conteudo!==null){
                             
             if (conteudo.length/2 == numeroDeCartasDoJogo ){
