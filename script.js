@@ -1,7 +1,7 @@
 
 
 let numeroDeCartasDoJogo = prompt('Qual o número de cartas?');
-let numeroDeCartas = parseInt((numeroDeCartasDoJogo)/2);
+let numeroDeCartas = (parseInt(numeroDeCartasDoJogo)/2);
 let arrayDeIndices = [0,1,2,3,4,5,6];
 let cartas = [];
 let cartaVirada = false;
