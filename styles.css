@@ -26,6 +26,15 @@ header{
     align-items: center;  
 }
 
+.carta{
+width: 117px;
+height: 146px;
+margin-bottom: 34px;
+margin-right: 17px;
+margin-left: 17px;
+
+}
+
 .frente{
     display: flex;
     align-items: center;
@@ -35,9 +44,6 @@ header{
     height:146px;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-    margin-bottom: 34px;
-    margin-right: 17px;
-    margin-left: 17px;
     position:absolute;   
     transition: all 0.5s;
     transform-style: preserve-3d;
@@ -56,9 +62,6 @@ header{
     height:146px;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-    margin-bottom: 34px;
-    margin-right: 17px;
-    margin-left: 17px;
     position:relative; 
     transition: all 0.5s;
     transform-style: preserve-3d;

@@ -65,6 +65,8 @@ mostrarCartas();
 
 let cartaVirada = false;
 let qtdJogadas = 0;
+let carta;
+
 
     function virarCarta(carta){
 
@@ -85,9 +87,12 @@ let qtdJogadas = 0;
     
             compararCartas(primeiraCarta,segundaCarta);
         }
-
+        
         qtdJogadas++
-        terminarJogo()   
+        // jogadasSeguidas()
+        terminarJogo() 
+        // tempoDeJogoPassado()
+        // tempoPassado() 
     }
 
 
@@ -113,6 +118,34 @@ function compararCartas(carta1,carta2){
     }
 }
 
+// Lógica para demorar para as próximas jogadas
+
+function jogadasSeguidas(){
+
+    if (qtdJogadas % 2 == 0){
+       setTimeout(function(){
+
+        virarCarta(carta)
+       }, 20000)
+    }
+    
+}
+
+let tempoDeJogo = 0;
+
+function tempoDeJogoPassado(){
+    let relogio = document.querySelector(".relogio")
+    relogio.innerHTML = parseInt(relogio.innerHTML) + 1;
+}
+
+const intervalo = setInterval(tempoDeJogoPassado,1000);
+
+function tempoPassado(){   
+    if (conteudo.length/2 == numeroDeCartasDoJogo){
+        clearInterval(intervalo);
+    }
+    tempoDeJogo = document.querySelector(".relogio").innerHTML;
+}
 
 
 function terminarJogo(){
@@ -124,7 +157,7 @@ function terminarJogo(){
                         
 
                 setTimeout(function(){
-                    let resposta = prompt(`Parabéns, você ganhou o jogo em ${qtdJogadas} jogadas e ${contador} segundos. Gostaria de reiniciar? Se sim, escreva "S". Se não, digite "N"`)
+                    let resposta = prompt(`Parabéns, você ganhou o jogo em ${qtdJogadas} jogadas e ${tempoDeJogo} segundos. Gostaria de reiniciar? Se sim, escreva "S". Se não, digite "N"`)
                 
 
                 if(resposta == "S"){
@@ -139,16 +172,5 @@ function terminarJogo(){
         }
 }
 
-let contador=0;
-let tempoDeJogo;
-function tempoDeJogoPassado(){
-    tempoDeJogo = setInterval(tempoPassado,1000);
-}
 
-function tempoPassado(){
-    contador++;
-    contador = document.querySelector(".relogio").innerHTML
-    if (conteudo.length/2 == numeroDeCartasDoJogo){
-        clearInterval(idInterval);
-    }
-}
+
